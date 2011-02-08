@@ -1,13 +1,13 @@
 * text=auto !eol
 action/editer_message.php -text
-/agenda.css -text
-/agenda.html -text
-/agenda_jour.html -text
-/agenda_mois.html -text
-/agenda_periode.html -text
-/agenda_semaine.html -text
 base/organiseur.php -text
 base/organiseur_upgrade.php -text
+/calendrier.css -text
+/calendrier.html -text
+/calendrier_jour.html -text
+/calendrier_mois.html -text
+/calendrier_periode.html -text
+/calendrier_semaine.html -text
 exec/calendrier.php -text
 exec/menu_agenda.php -text
 exec/message.php -text
