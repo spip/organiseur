@@ -17,6 +17,7 @@ inc/message_select.php -text
 /plugin.xml -text
 prive/rss/messagerie.html -text
 prive/squelettes/inclure/configurer_messagerie.html -text
+prive/style_prive_plugin_organiseur.html -text
 prive/themes/spip/images/agenda-16.png -text
 prive/themes/spip/images/agenda-24.png -text
 prive/themes/spip/images/annonce-16.png -text
