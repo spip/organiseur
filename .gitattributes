@@ -18,6 +18,7 @@ formulaires/configurer_messagerie_agenda.html -text
 formulaires/configurer_messagerie_agenda.php -text
 inc/agenda.php -text
 inc/message_select.php -text
+inc/quete_calendrier.php -text
 /organiseur_autoriser.php -text
 /organiseur_pipelines.php -text
 /plugin.xml -text
