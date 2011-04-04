@@ -4,11 +4,9 @@ action/quete_calendrier.php -text
 base/organiseur.php -text
 base/organiseur_upgrade.php -text
 /calendrier.css -text
-/calendrier.html -text
-/calendrier_jour.html -text
-/calendrier_mois.html -text
-/calendrier_periode.html -text
-/calendrier_semaine.html -text
+/calendrier_quete.json.html -text
+/calendrier_quete.json_fonctions.php -text
+contenu/calendrier.html -text
 exec/calendrier.php -text
 exec/menu_agenda.php -text
 exec/message.php -text
