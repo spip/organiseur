@@ -7,12 +7,10 @@ base/organiseur_upgrade.php -text
 /calendrier_quete.json.html -text
 /calendrier_quete.json_fonctions.php -text
 contenu/calendrier.html -text
-exec/calendrier.php -text
 exec/menu_agenda.php -text
 exec/message.php -text
 exec/message_edit.php -text
 exec/messagerie.php -text
-filtres/agenda.php -text
 formulaires/configurer_messagerie_agenda.html -text
 formulaires/configurer_messagerie_agenda.php -text
 inc/agenda.php -text
