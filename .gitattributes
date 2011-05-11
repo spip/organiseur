@@ -16,6 +16,7 @@ formulaires/configurer_messagerie_agenda.php -text
 inc/agenda.php -text
 inc/message_select.php -text
 inc/quete_calendrier.php -text
+lang/organiseur.xml -text
 lang/organiseur_fr.php -text
 lib/fullcalendar/fullcalendar.css -text
 lib/fullcalendar/fullcalendar.js -text
