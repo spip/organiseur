@@ -17,7 +17,10 @@ inc/agenda.php -text
 inc/message_select.php -text
 inc/quete_calendrier.php -text
 lang/organiseur.xml -text
+lang/organiseur_ar.php -text
+lang/organiseur_de.php -text
 lang/organiseur_fr.php -text
+lang/organiseur_sk.php -text
 lib/fullcalendar/fullcalendar.css -text
 lib/fullcalendar/fullcalendar.js -text
 lib/fullcalendar/fullcalendar.min.js -text
