@@ -26,6 +26,7 @@ lib/fullcalendar/fullcalendar.min.js -text
 lib/fullcalendar/fullcalendar.print.css -text
 lib/fullcalendar/gcal.js -text
 /organiseur_autoriser.php -text
+/organiseur_fonctions.php -text
 /organiseur_pipelines.php -text
 /plugin.xml -text
 prive/rss/messagerie.html -text
