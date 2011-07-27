@@ -32,6 +32,8 @@ lib/fullcalendar/gcal.js -text
 prive/rss/messagerie.html -text
 prive/squelettes/contenu/calendrier.html -text
 prive/squelettes/inclure/configurer_messagerie.html -text
+prive/squelettes/inclure/organiseur-message.html -text
+prive/squelettes/inclure/organiseur-rappels.html -text
 prive/squelettes/top/calendrier.html -text
 prive/style_prive_plugin_organiseur.html -text
 prive/themes/spip/images/agenda-16.png -text
