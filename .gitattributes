@@ -28,10 +28,12 @@ lib/fullcalendar/gcal.js -text
 /organiseur_fonctions.php -text
 /organiseur_pipelines.php -text
 /plugin.xml -text
+prive/objets/contenu/message.html -text
 prive/objets/liste/messages-envoyes.html -text
 prive/objets/liste/messages-recus.html -text
 prive/rss/messagerie.html -text
 prive/squelettes/contenu/calendrier.html -text
+prive/squelettes/contenu/message.html -text
 prive/squelettes/contenu/messages.html -text
 prive/squelettes/inclure/configurer_messagerie.html -text
 prive/squelettes/inclure/organiseur-envoi.html -text
