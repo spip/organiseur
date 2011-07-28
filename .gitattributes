@@ -11,7 +11,6 @@ exec/message.php -text
 exec/message_edit.php -text
 formulaires/configurer_messagerie_agenda.html -text
 formulaires/configurer_messagerie_agenda.php -text
-inc/agenda.php -text
 inc/messages.php -text
 inc/quete_calendrier.php -text
 lang/organiseur.xml -text
