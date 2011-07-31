@@ -2,7 +2,6 @@
 action/editer_message.php -text
 action/quete_calendrier.php -text
 base/organiseur.php -text
-base/organiseur_upgrade.php -text
 /calendrier.css -text
 /calendrier_quete.json.html -text
 /calendrier_quete.json_fonctions.php -text
@@ -23,10 +22,10 @@ lib/fullcalendar/fullcalendar.js -text
 lib/fullcalendar/fullcalendar.min.js -text
 lib/fullcalendar/fullcalendar.print.css -text
 lib/fullcalendar/gcal.js -text
+/organiseur_administrations.php -text
 /organiseur_autoriser.php -text
 /organiseur_fonctions.php -text
 /organiseur_pipelines.php -text
-/plugin.xml -text
 prive/objets/contenu/message.html -text
 prive/objets/liste/messages-envoyes.html -text
 prive/objets/liste/messages-recus.html -text
