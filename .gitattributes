@@ -37,7 +37,7 @@ notifications/message_normal_publie.html -text
 prive/objets/contenu/message.html -text
 prive/objets/liste/messages-envoyes.html -text
 prive/objets/liste/messages-recus.html -text
-prive/rss/messagerie.html -text
+prive/rss/messages.html -text
 prive/squelettes/contenu/calendrier.html -text
 prive/squelettes/contenu/message.html -text
 prive/squelettes/contenu/message_edit.html -text
