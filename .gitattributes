@@ -1,5 +1,5 @@
 * text=auto !eol
-action/editer_message.php -text
+action/quete_autocomplete.php -text
 action/quete_calendrier.php -text
 base/organiseur.php -text
 /calendrier.css -text
@@ -10,8 +10,13 @@ exec/message.php -text
 exec/message_edit.php -text
 formulaires/configurer_messagerie_agenda.html -text
 formulaires/configurer_messagerie_agenda.php -text
+formulaires/editer_message.html -text
+formulaires/editer_message.js -text
+formulaires/editer_message.php -text
+formulaires/inc-destinataires-message.html -text
 inc/messages.php -text
 inc/quete_calendrier.php -text
+javascript/jquery.autocomplete.js -text
 lang/organiseur.xml -text
 lang/organiseur_ar.php -text
 lang/organiseur_de.php -text
@@ -22,6 +27,9 @@ lib/fullcalendar/fullcalendar.js -text
 lib/fullcalendar/fullcalendar.min.js -text
 lib/fullcalendar/fullcalendar.print.css -text
 lib/fullcalendar/gcal.js -text
+notifications/instituermessage.php -text
+notifications/message_affich_publie.html -text
+notifications/message_normal_publie.html -text
 /organiseur_administrations.php -text
 /organiseur_autoriser.php -text
 /organiseur_fonctions.php -text
@@ -32,8 +40,10 @@ prive/objets/liste/messages-recus.html -text
 prive/rss/messagerie.html -text
 prive/squelettes/contenu/calendrier.html -text
 prive/squelettes/contenu/message.html -text
+prive/squelettes/contenu/message_edit.html -text
 prive/squelettes/contenu/messages.html -text
 prive/squelettes/inclure/configurer_messagerie.html -text
+prive/squelettes/inclure/organiseur-autocomplete-auteur.html -text
 prive/squelettes/inclure/organiseur-envoi.html -text
 prive/squelettes/inclure/organiseur-interventions.html -text
 prive/squelettes/inclure/organiseur-message.html -text
