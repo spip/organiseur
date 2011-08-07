@@ -1,6 +1,8 @@
 * text=auto !eol
+action/effacer_messagerecu.php -text
 action/quete_autocomplete.php -text
 action/quete_calendrier.php -text
+action/supprimer_message.php -text
 base/organiseur.php -text
 /calendrier.css -text
 /calendrier_quete.json.html -text
