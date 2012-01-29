@@ -39,6 +39,7 @@ notifications/message_normal_publie.html -text
 /organiseur_administrations.php -text
 /organiseur_autoriser.php -text
 /organiseur_fonctions.php -text
+/organiseur_ieconfig.php -text
 /organiseur_pipelines.php -text
 prive/objets/contenu/message.html -text
 prive/objets/liste/messages-envoyes.html -text
