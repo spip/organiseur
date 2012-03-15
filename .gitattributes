@@ -1,5 +1,6 @@
 * text=auto !eol
 action/effacer_messagerecu.php -text
+action/envoyer_message.php -text
 action/quete_autocomplete.php -text
 action/quete_calendrier_prive.php -text
 action/supprimer_message.php -text
