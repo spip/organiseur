@@ -9,8 +9,6 @@ base/organiseur.php -text
 /calendrier_quete.json.html -text
 /calendrier_quete.json_fonctions.php -text
 contenu/calendrier.html -text
-exec/message.php -text
-exec/message_edit.php -text
 formulaires/configurer_messagerie_agenda.html -text
 formulaires/configurer_messagerie_agenda.php -text
 formulaires/editer_message.html -text
