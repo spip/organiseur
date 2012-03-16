@@ -28,6 +28,7 @@ lang/organiseur_sk.php -text
 lang/paquet-organiseur.xml -text
 lang/paquet-organiseur_ar.php -text
 lang/paquet-organiseur_en.php -text
+lang/paquet-organiseur_fa.php -text
 lang/paquet-organiseur_it.php -text
 lang/paquet-organiseur_sk.php -text
 lib/fullcalendar/fullcalendar.css -text
