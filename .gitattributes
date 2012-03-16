@@ -15,6 +15,7 @@ formulaires/editer_message.html -text
 formulaires/editer_message.js -text
 formulaires/editer_message.php -text
 formulaires/inc-destinataires-message.html -text
+inc/date_gestion.php -text
 inc/messages.php -text
 inc/quete_calendrier.php -text
 javascript/jquery.autocomplete.js -text
