@@ -26,8 +26,10 @@ lang/organiseur_en.php -text
 lang/organiseur_es.php -text
 lang/organiseur_fa.php -text
 lang/organiseur_fr.php -text
+lang/organiseur_fr_fem.php -text
 lang/organiseur_it.php -text
 lang/organiseur_nl.php -text
+lang/organiseur_pt.php -text
 lang/organiseur_ru.php -text
 lang/organiseur_sk.php -text
 lang/paquet-organiseur.xml -text
@@ -36,9 +38,11 @@ lang/paquet-organiseur_de.php -text
 lang/paquet-organiseur_en.php -text
 lang/paquet-organiseur_es.php -text
 lang/paquet-organiseur_fa.php -text
+lang/paquet-organiseur_fr_fem.php -text
 lang/paquet-organiseur_it.php -text
 lang/paquet-organiseur_lb.php -text
 lang/paquet-organiseur_nl.php -text
+lang/paquet-organiseur_pt.php -text
 lang/paquet-organiseur_ru.php -text
 lang/paquet-organiseur_sk.php -text
 lib/fullcalendar/fullcalendar.css -text

@@ -1,6 +1,8 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// Fichier source, a modifier dans svn://zone.spip.org/spip-zone/_core_/plugins/organiseur/lang/
+// extrait automatiquement de http://trad.spip.net/tradlang_module/organiseur?lang_cible=fr_fem
+// ** ne pas modifier le fichier **
+
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
@@ -20,7 +22,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_date' => 'Cette date est incorrecte',
 	'erreur_date_avant_apres' => 'Indiquez une date de fin après la date de début !',
 	'erreur_date_corrigee' => 'La date a été corrigée',
-	'erreur_destinataire_invalide' => 'Le destinataire @dest@ n’est pas valide',
+	'erreur_destinataire_invalide' => 'La destinataire @dest@ n’est pas valide',
 	'erreur_heure' => 'Cette heure est incorrecte',
 	'erreur_heure_corrigee' => 'L’heure a été corrigée',
 
@@ -73,7 +75,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_message_brouillon' => 'Ce message est enregistré comme brouillon',
 	'titre_agenda_rv' => 'Rendez-vous',
 	'titre_boite_envoi' => 'Boîte d’envoi',
-	'titre_boite_reception' => 'Boîte de reception'
+	'titre_boite_reception' => 'Boîte de réception'
 );
 
 ?>
