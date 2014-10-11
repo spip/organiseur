@@ -18,7 +18,6 @@ formulaires/inc-destinataires-message.html -text
 inc/date_gestion.php -text
 inc/messages.php -text
 inc/quete_calendrier.php -text
-javascript/jquery.autocomplete.js -text
 lang/organiseur.xml -text
 lang/organiseur_ar.php -text
 lang/organiseur_de.php -text
