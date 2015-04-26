@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de http://trad.spip.net/tradlang_module/organiseur?lang_cible=fr_fem
+// extrait automatiquement de http://trad.spip.net/tradlang_module/organiseur?lang_cible=fr_tu
 // ** ne pas modifier le fichier **
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
@@ -20,9 +20,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_date' => 'Cette date est incorrecte',
-	'erreur_date_avant_apres' => 'Indiquez une date de fin après la date de début !',
+	'erreur_date_avant_apres' => 'Indique une date de fin après la date de début !',
 	'erreur_date_corrigee' => 'La date a été corrigée',
-	'erreur_destinataire_invalide' => 'La destinataire @dest@ n’est pas valide',
+	'erreur_destinataire_invalide' => 'Le destinataire @dest@ n’est pas valide',
 	'erreur_heure' => 'Cette heure est incorrecte',
 	'erreur_heure_corrigee' => 'L’heure a été corrigée',
 
@@ -32,7 +32,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'icone_ecrire_nouvelle_annonce' => 'Envoyer une nouvelle annonce',
 	'icone_effacer_message' => 'Effacer ce message',
 	'icone_modifier_annonce' => 'Modifier cette annonce',
-	'icone_modifier_message' => 'Modifier ce message',
 	'icone_modifier_pensebete' => 'Modifier ce pense-bête',
 	'icone_supprimer_message' => 'Supprimer ce message',
 	'info_1_message_envoye' => '1 message envoyé',
@@ -66,17 +65,17 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'messages' => 'Messages',
 
 	// N
-	'notification_annonce_lire_a_ladresse' => 'Vous pouvez la lire à l’adresse suivante @url@.',
+	'notification_annonce_lire_a_ladresse' => 'Tu peux la lire à l’adresse suivante @url@.',
 	'notification_annonce_publie_1' => '[@nom_site_spip@] Annonce générale',
-	'notification_message_lire_a_ladresse' => 'Vous pouvez le lire et y répondre à l’adresse suivante @url@.',
+	'notification_message_lire_a_ladresse' => 'Tu peux le lire et y répondre à l’adresse suivante @url@.',
 	'notification_message_publie_1' => '[@nom_site_spip@] Nouveau message',
-	'notification_message_recu_de' => 'Vous avez reçu un nouveau message de la part de @nom@.',
+	'notification_message_recu_de' => 'Tu as reçu un nouveau message de la part de @nom@.',
 
 	// T
 	'texte_message_brouillon' => 'Ce message est enregistré comme brouillon',
 	'titre_agenda_rv' => 'Rendez-vous',
 	'titre_boite_envoi' => 'Boîte d’envoi',
-	'titre_boite_reception' => 'Boîte de réception'
+	'titre_boite_reception' => 'Boîte de reception'
 );
 
 ?>
