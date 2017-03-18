@@ -54,9 +54,17 @@ lang/paquet-organiseur_sk.php -text
 lang/paquet-organiseur_uk.php -text
 lib/fullcalendar/fullcalendar.css -text
 lib/fullcalendar/fullcalendar.js -text
+lib/fullcalendar/fullcalendar.min.css -text
 lib/fullcalendar/fullcalendar.min.js -text
 lib/fullcalendar/fullcalendar.print.css -text
+lib/fullcalendar/fullcalendar.print.min.css -text
 lib/fullcalendar/gcal.js -text
+lib/fullcalendar/gcal.min.js -text
+lib/fullcalendar/locale-all.js -text
+lib/moment/moment-with-locales.js -text
+lib/moment/moment-with-locales.min.js -text
+lib/moment/moment.js -text
+lib/moment/moment.min.js -text
 notifications/instituermessage.php -text
 notifications/message_affich_publie.html -text
 notifications/message_normal_publie.html -text
