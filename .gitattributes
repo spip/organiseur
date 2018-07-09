@@ -70,6 +70,7 @@ lib/fullcalendar/locale/ar-sa.js -text
 lib/fullcalendar/locale/ar-tn.js -text
 lib/fullcalendar/locale/ar.js -text
 lib/fullcalendar/locale/bg.js -text
+lib/fullcalendar/locale/bs.js -text
 lib/fullcalendar/locale/ca.js -text
 lib/fullcalendar/locale/cs.js -text
 lib/fullcalendar/locale/da.js -text
@@ -83,6 +84,7 @@ lib/fullcalendar/locale/en-gb.js -text
 lib/fullcalendar/locale/en-ie.js -text
 lib/fullcalendar/locale/en-nz.js -text
 lib/fullcalendar/locale/es-do.js -text
+lib/fullcalendar/locale/es-us.js -text
 lib/fullcalendar/locale/es.js -text
 lib/fullcalendar/locale/et.js -text
 lib/fullcalendar/locale/eu.js -text
@@ -100,6 +102,7 @@ lib/fullcalendar/locale/id.js -text
 lib/fullcalendar/locale/is.js -text
 lib/fullcalendar/locale/it.js -text
 lib/fullcalendar/locale/ja.js -text
+lib/fullcalendar/locale/ka.js -text
 lib/fullcalendar/locale/kk.js -text
 lib/fullcalendar/locale/ko.js -text
 lib/fullcalendar/locale/lb.js -text
@@ -119,6 +122,7 @@ lib/fullcalendar/locale/ro.js -text
 lib/fullcalendar/locale/ru.js -text
 lib/fullcalendar/locale/sk.js -text
 lib/fullcalendar/locale/sl.js -text
+lib/fullcalendar/locale/sq.js -text
 lib/fullcalendar/locale/sr-cyrl.js -text
 lib/fullcalendar/locale/sr.js -text
 lib/fullcalendar/locale/sv.js -text
