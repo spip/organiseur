@@ -65,7 +65,6 @@ function organiseur_upgrade($nom_meta_base_version, $version_cible) {
  */
 function organiseur_vider_tables($nom_meta_base_version) {
 	sql_drop_table('spip_messages');
-	sql_alter('TABLE spip_auteurs DROP imessage');
 	sql_alter('TABLE spip_auteurs DROP messagerie');
 
 	effacer_meta('messagerie_agenda');

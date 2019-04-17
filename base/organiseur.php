@@ -23,7 +23,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  */
 function organiseur_declarer_tables_objets_sql($tables) {
 
-	$tables['spip_auteurs']['field']['imessage'] = 'VARCHAR(3)';
 	$tables['spip_auteurs']['field']['messagerie'] = 'VARCHAR(3)';
 
 	$tables['spip_messages'] = array(
