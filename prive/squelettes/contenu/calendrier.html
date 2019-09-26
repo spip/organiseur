@@ -16,6 +16,7 @@ jQuery(function($) {
 		navLinks: true,
 		eventLimit: true,
 		events: "[(#URL_ACTION_AUTEUR{quete_calendrier_prive,calendrier}|replace{'&amp;','&'})]",
+		timeFormat: 'hh:mm',
 		header: {
 			left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear today'","'listMonth,month,agendaWeek,agendaDay'"})],
 			center: 'title',
