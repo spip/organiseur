@@ -23,7 +23,6 @@ jQuery(function($) {
 			else $('#loading').hide();
 		},
 		dayClick: function(date, jsEvent, view) {
-			console.log(date, jsEvent, view);
 			if (view.name == 'month') {
 				$('.fc-agendaWeek-button').click();
 				$('#calendrier').fullCalendar( 'gotoDate', date );
