@@ -169,14 +169,16 @@ function quete_calendrier_interval_articles($avant, $apres, &$evenements) {
 	} else {
 		$langues = array();
 	}
+
 	while ($row = sql_fetch($result)) {
 		$amj = date_anneemoisjour($row['date']);
 		$id = $row['id_article'];
 		if (autoriser('voir', 'article', $id)) {
+			$langue = isset($langues[$row['lang']]) ? $langues[$row['lang']] : "";
 			$evenements[$amj][] =
 				array(
 					'CATEGORIES' => calendrier_categories('spip_articles', $id, 'id_article'),
-					'DESCRIPTION' => $row['descriptif'] ? $row['descriptif'] : $langues[$row['lang']],
+					'DESCRIPTION' => $row['descriptif'] ?: $langue,
 					'SUMMARY' => $row['titre'],
 					'URL' => generer_url_ecrire_objet('article', $id, '', '', 'prop')
 				);
