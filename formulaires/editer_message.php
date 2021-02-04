@@ -36,10 +36,6 @@ function formulaires_editer_message_charger_dist(
 	}
 
 	$valeurs = formulaires_editer_objet_charger('message', $id_message, 0, 0, $retour, '');
-	if (intval($id_message) and !autoriser('modifier', 'message', intval($id_message))) {
-		$valeurs['editable'] = '';
-	}
-
 
 	// les destinataires sont stockes en chaine separe par une virgule dans la base
 	if (strlen($valeurs['destinataires'])) {
