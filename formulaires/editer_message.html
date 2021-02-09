@@ -86,3 +86,10 @@
 	}
 </script>
 ]
+<script type="text/javascript">
+	// Si changement de date_début, on change date_fin uniquement si inférieure à date_début
+	jQuery('#date_debut').on('change', function(){
+		var debut_date     = jQuery('#date_debut').datepicker("getDate");
+		jQuery('#date_fin').datepicker( "option", "minDate", new Date(debut_date));
+	});
+</script>
