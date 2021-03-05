@@ -11,6 +11,17 @@
 tbody tr td.fc-daygrid-day { background-color: #fff; }
 
 .calendrier-event {word-wrap:break-word;}
+tbody tr.calendrier-event:nth-child(2n) td {
+	color: inherit;
+	background-color: inherit;
+}
+tr.calendrier-event.fc-list-event:hover {
+	opacity: 0.9;
+}
+tr.calendrier-event.fc-list-event:hover td {
+	color: inherit;
+	background-color: inherit;
+}
 
 .calendrier-couleur1,
 .calendrier-couleur1 .fc-widget-content { background-color: #CD006F; border-color: #CD006F; color: #fff; } /* Fushia */
