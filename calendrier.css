@@ -8,7 +8,9 @@
 .calendrier-nb  { background-color: #FFF; border: 1px solid #000; color: #000; } /* style cinemat(yp)ographe */
 
 .fc-view table {margin-bottom: 0}
-tbody tr td.fc-daygrid-day { background-color: #fff; }
+.fc tbody tr td.fc-daygrid-day { background-color: #fff; }
+.fc tbody .fc-scrollgrid-section-liquid > td {background-color: transparent}
+.fc tbody .fc-timegrid-slot-minor {background: #eee;}
 
 .calendrier-event {word-wrap:break-word;}
 tbody tr.calendrier-event:nth-child(2n) td {

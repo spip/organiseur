@@ -23,8 +23,10 @@
 [(#BOITE_FERMER)]
 
 <BOUCLE_isrv(MESSAGES){id_message}{statut?}{rv=oui}>
-<div id="calendrier-loading" style="position:absolute;top:20px;left:350px;padding:5px 30px;display:none;border:1px solid #ddd;background:#eee;z-index:100;"><:organiseur:loading:></div>
-<div id="calendrier"></div>
+<div class="calendrier-wrapper" style="position: relative">
+	<div id="calendrier-loading" style="position:absolute;top:0;left:0;right:0;bottom:0;padding:5em 10px;text-align:center;display:none;background:rgba(250,250,250,0.85);backdrop-filter: blur(5px);  z-index:100;"><:organiseur:loading:></div>
+	<div id="calendrier" style="height: 550px"></div>
+</div>
 <link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/main.min.css}' />
 <link rel='stylesheet' type='text/css' href='#CHEMIN{calendrier.css}' />
 <script type='text/javascript' src='#CHEMIN{lib/fullcalendar/main.min.js}'></script>
@@ -40,14 +42,15 @@ jQuery(function($) {
 		locale: '[(#LANG|strtolower)]',
 		editable: false,
 		navLinks: true,
-		defaultView: 'dayGridDay',
+		initialView: 'timeGridDay',
 		events: "[(#URL_ACTION_AUTEUR{quete_calendrier_prive,calendrier}|replace{'&amp;','&'})]",
 		headerToolbar: {
-			left: (is_ltr ? 'prevYear,prev,next,nextYear today' : 'listMonth,dayGridMonth,dayGridWeek,dayGridDay'),
-			center: 'title',
-			right: (is_ltr ? 'dayGridDay,dayGridWeek,dayGridMonth,listMonth' : 'today nextYear,next,prev,prevYear')
+			left: (is_ltr ? 'prev,next' : 'today'),
+			center: false,
+			right: (is_ltr ? 'today' : 'next,prev')
 		},
 		height: 550,
+		dayHeaderFormat: { weekday: 'short', month: 'numeric', day: 'numeric', omitCommas: true },
 		fixedWeekCount: false,
 		loading: function(bool) {
 			if (bool) $('#calendrier-loading').show();
