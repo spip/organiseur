@@ -7,7 +7,7 @@
 .calendrier-noir  { color: #000; } /* style anar */
 .calendrier-nb  { background-color: #FFF; border: 1px solid #000; color: #000; } /* style cinemat(yp)ographe */
 
-.fc-col-header { margin-bottom:0; }
+.fc-view table {margin-bottom: 0}
 tbody tr td.fc-daygrid-day { background-color: #fff; }
 
 .calendrier-event {word-wrap:break-word;}
