@@ -192,6 +192,7 @@ function formulaires_editer_message_traiter_dist(
 	$res = formulaires_editer_objet_traiter('message', $id_message, 0, 0, $retour, '');
 
 	if ($id_message = $res['id_message']
+		and $type !== 'affich'
 		and !_request('draft')
 	) {
 		include_spip('action/editer_objet');

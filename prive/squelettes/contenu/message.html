@@ -29,8 +29,9 @@
 	[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,message,objet,message,id_objet,#ID_MESSAGE},data,#GET{enfants}})]})]
 
 	[(#CONST{_AJAX}|oui)
-	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('[(#OBJET|objet_info{url_voir})]','#navigation,#chemin');/*\]\]>*/</script>
+	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin');/*\]\]>*/</script>
 	]
+
 	<?php
 	include_spip('inc/messages');
 	messagerie_marquer_lus(#SESSION{id_auteur},#ID_MESSAGE);
