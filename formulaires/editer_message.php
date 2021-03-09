@@ -192,13 +192,13 @@ function formulaires_editer_message_traiter_dist(
 	$res = formulaires_editer_objet_traiter('message', $id_message, 0, 0, $retour, '');
 
 	if ($id_message = $res['id_message']
-		and $type !== 'affich'
 		and !_request('draft')
 	) {
 		include_spip('action/editer_objet');
 		objet_modifier('message', $id_message, array('statut' => 'publie', 'date_heure' => _request('date_heure')));
 		// apres en message envoyes, retourner sur la boite d'envoi plutot que sur le message
 		if (isset($res['redirect'])
+			and $type !== 'affich'
 			and ($res['redirect'] == generer_url_ecrire('message', 'id_message=' . $id_message))) {
 			$res['redirect'] = generer_url_ecrire('messages', 'quoi=envoi');
 		}
