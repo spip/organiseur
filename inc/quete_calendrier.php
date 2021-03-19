@@ -345,7 +345,7 @@ function quete_calendrier_interval_rv($avant, $apres) {
 						'DESCRIPTION' => $row['texte'],
 						'SUMMARY' => $row['titre'],
 						'CATEGORIES' => $cat,
-						'ATTENDEE' => (count($auteurs) == 0) ? '' : join($auteurs, ', ')
+						'ATTENDEE' => (count($auteurs) == 0) ? '' : implode(', ', $auteurs)
 					);
 			}
 
