@@ -1,6 +1,8 @@
 <div class="ajax formulaire_spip formulaire_editer formulaire_#FORM formulaire_#FORM-#ENV{id,nouveau}">
 	[<p class="reponse_formulaire reponse_formulaire_ok" role="status">(#ENV**{message_ok})</p>]
 	[<p class="reponse_formulaire reponse_formulaire_erreur" role="alert">(#ENV*{message_erreur})</p>]
+	<p hidden id="format_date_message_#ENV{id,nouveau}"><:format_date_attendu:></p>
+	<p hidden id="format_heure_message_#ENV{id,nouveau}"><:format_heure_attendu:></p>
 	[(#ENV{editable})
 	<form method='post' action='#ENV{action}'><div>
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
@@ -35,15 +37,20 @@
 			<div class="editer editer_date_debut editer_date_debut_fin[ (#ENV**{erreurs}|table_valeur{date_debut}|oui)erreur][(#ENV{rv}|=={oui}|non)none]">
 				<label for="date_debut"><:organiseur:info_message_date_debut:></label>[
 				<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{date_debut})</span>
-				]<input type='text' class='text date' name='date_debut' id='date_debut' size='10' maxlength='10' value="[(#ENV{date_debut})]" />
+				]<input type='text' class='text date' name='date_debut' id='date_debut' size='10' maxlength='10' value="[(#ENV{date_debut})]"
+				        aria-describedby="format_date_message_#ENV{id,nouveau}" />
 				<input type='text' class='text heure' name='heure_debut' id='heure_debut' size='4' maxlength='5' value="[(#ENV{heure_debut})]"
-				/>
+				       aria-labelledby="date_debut"
+				       aria-describedby="format_heure_message_#ENV{id,nouveau}" />
 			</div>
 			<div class="editer editer_date_fin editer_date_debut_fin[ (#ENV**{erreurs}|table_valeur{date_fin}|oui)erreur][(#ENV{rv}|=={oui}|non)none]">
 				<label for="date_fin" class='date_fin'><:organiseur:info_message_date_fin:></label>[
 				<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{date_fin})</span>
-				]<input type='text' class='text date' name='date_fin' id='date_fin' size='10' maxlength='10' value="[(#ENV{date_fin})]" />
-				<input type='text' class='text heure' name='heure_fin' id='heure_fin' size='4' maxlength='5' value="[(#ENV{heure_fin})]" />
+				]<input type='text' class='text date' name='date_fin' id='date_fin' size='10' maxlength='10' value="[(#ENV{date_fin})]"
+				        aria-describedby="format_date_message_#ENV{id,nouveau}" />
+				<input type='text' class='text heure' name='heure_fin' id='heure_fin' size='4' maxlength='5' value="[(#ENV{heure_fin})]"
+				       aria-labelledby="date_fin"
+				       aria-describedby="format_heure_message_#ENV{id,nouveau}" />
 			</div>
 			#SET{name,texte}#SET{obli,'obligatoire'}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 			<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
