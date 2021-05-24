@@ -21,7 +21,7 @@
 <div class="champ contenu_destinataires clearfix">
 <div class='label'><:organiseur:info_message_a:></div>
 <div dir='#LANG_DIR' class='destinataires'>
-	<BOUCLE_d(POUR){tableau #DESTINATAIRES|explode{','}}{', '}><BOUCLE_a(AUTEURS){id_auteur=#VALEUR}{tout}><a href="[(#ID_AUTEUR|generer_url_entite{auteur})]">#NOM</a></BOUCLE_a>#VALEUR<//B_a></BOUCLE_d>
+	<BOUCLE_d(DATA){source table, #DESTINATAIRES|explode{','}}{', '}><BOUCLE_a(AUTEURS){id_auteur=#VALEUR}{tout}><a href="[(#ID_AUTEUR|generer_url_entite{auteur})]">#NOM</a></BOUCLE_a>#VALEUR<//B_a></BOUCLE_d>
 </div>
 </div>
 </B_d>
