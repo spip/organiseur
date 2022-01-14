@@ -107,7 +107,7 @@ function messagerie_destiner($dests) {
 		while ($row = sql_fetch($res)) {
 			$auteurs_dest_found[] = $row['id_auteur'];
 		}
-		$auteurs_dest = array_merge($auteurs_dest, $auteurs_dest_found);
+		$auteurs_dest = [...$auteurs_dest, ...$auteurs_dest_found];
 	}
 
 	return array($auteurs_dest, $email_dests);

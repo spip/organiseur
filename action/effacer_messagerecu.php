@@ -24,7 +24,7 @@ function action_effacer_messagerecu_dist($id_auteur = null, $id_message = null) 
 	if (is_null($id_auteur) or is_null($id_message)) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
-		list($id_auteur, $id_message) = explode('-', $arg);
+		[$id_auteur, $id_message] = explode('-', $arg);
 	}
 
 

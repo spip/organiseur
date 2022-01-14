@@ -90,7 +90,7 @@ function quete_calendrier_jour($annee, $mois, $jour) {
  **/
 function quete_calendrier_interval($limites) {
 	include_spip('inc/urls');
-	list($avant, $apres) = $limites;
+	[$avant, $apres] = $limites;
 	$evt = array();
 	quete_calendrier_interval_articles($avant, $apres, $evt);
 	quete_calendrier_interval_breves($avant, $apres, $evt);
@@ -116,7 +116,7 @@ function quete_calendrier_interval($limites) {
  *     Format : `$evenements[$amj][] = Tableau de description ICS`
  **/
 function quete_calendrier_interval_forums($limites, &$evenements) {
-	list($avant, $apres) = $limites;
+	[$avant, $apres] = $limites;
 	$result = sql_select(
 		'DISTINCT titre, date_heure, id_forum',
 		'spip_forum',
@@ -174,7 +174,7 @@ function quete_calendrier_interval_articles($avant, $apres, &$evenements) {
 		$amj = date_anneemoisjour($row['date']);
 		$id = $row['id_article'];
 		if (autoriser('voir', 'article', $id)) {
-			$langue = isset($langues[$row['lang']]) ? $langues[$row['lang']] : "";
+			$langue = $langues[$row['lang']] ?? "";
 			$evenements[$amj][] =
 				array(
 					'CATEGORIES' => calendrier_categories('spip_articles', $id, 'id_article'),

@@ -89,7 +89,7 @@ function organiseur_alertes_auteur($flux) {
 		"spip_messages AS M LEFT JOIN spip_auteurs_liens AS L ON (L.objet='message' AND L.id_objet=M.id_message)",
 		'L.id_auteur=' . intval($id_auteur) . " AND L.vu='non' AND M.statut='publie' AND M.type='normal'"
 	);
-	$total_messages = count($result_messages);
+	$total_messages = is_countable($result_messages) ? count($result_messages) : 0;
 	if ($total_messages == 1) {
 		$row = reset($result_messages);
 		$id_message = $row['id_message'];
@@ -227,7 +227,7 @@ function organiseur_post_edition($flux) {
 		$row = sql_fetsel('destinataires,id_auteur,titre,texte', 'spip_messages', 'id_message=' . intval($id_message));
 		if ($row) {
 			include_spip('inc/messages');
-			list($auteurs_dest, $email_dests) = messagerie_destiner(explode(',', $row['destinataires']));
+			[$auteurs_dest, $email_dests] = messagerie_destiner(explode(',', $row['destinataires']));
 
 			// diffuser le message en interne
 			messagerie_diffuser_message($id_message, $auteurs_dest);

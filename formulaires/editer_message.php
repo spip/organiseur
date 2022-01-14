@@ -61,11 +61,11 @@ function formulaires_editer_message_charger_dist(
 	}
 
 	// dispatcher date et heure
-	list($valeurs['date_debut'], $valeurs['heure_debut']) = explode(
+	[$valeurs['date_debut'], $valeurs['heure_debut']] = explode(
 		' ',
 		date('d/m/Y H:i', strtotime($valeurs['date_heure']))
 	);
-	list($valeurs['date_fin'], $valeurs['heure_fin']) = explode(
+	[$valeurs['date_fin'], $valeurs['heure_fin']] = explode(
 		' ',
 		date('d/m/Y H:i', strtotime($valeurs['date_fin']))
 	);

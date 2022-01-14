@@ -60,7 +60,7 @@ function action_quete_calendrier_prive_dist() {
 	}
 
 	if (!$quoi or $quoi == 'publication') {
-		list($entier, ) = quete_calendrier_interval($limites);
+		[$entier, ] = quete_calendrier_interval($limites);
 		$evt = convert_fullcalendar_quete_calendrier_interval($entier, $evt);
 	}
 
@@ -76,7 +76,7 @@ function action_quete_calendrier_prive_dist() {
 
 	// format json
 	include_spip('inc/json');
-	echo json_encode($evt);
+	echo json_encode($evt, JSON_THROW_ON_ERROR);
 }
 
 /**

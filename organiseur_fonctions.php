@@ -105,7 +105,7 @@ function critere_MESSAGES_rv_a_venir_dist($idb, &$boucles, $crit) {
 	$id_table = $boucle->id_table;
 
 	$_dateref = organiseur_calculer_date_reference($idb, $boucles, $crit);
-	$_date = "$id_table." . (isset($boucle->show['date']) ? $boucle->show['date'] : 'date_debut');
+	$_date = "$id_table." . ($boucle->show['date'] ?? 'date_debut');
 	$op = $crit->not ? '<=' : '>';
 	$where = array("'$op'", "'$_date'", "sql_quote($_dateref)");
 
@@ -145,7 +145,7 @@ function critere_MESSAGES_rv_en_cours_dist($idb, &$boucles, $crit) {
 	$id_table = $boucle->id_table;
 
 	$_dateref = organiseur_calculer_date_reference($idb, $boucles, $crit);
-	$_date_debut = "$id_table." . (isset($boucle->show['date']) ? $boucle->show['date'] : 'date_debut');
+	$_date_debut = "$id_table." . ($boucle->show['date'] ?? 'date_debut');
 	$_date_fin = "$id_table.date_fin";
 
 	$where =
@@ -164,14 +164,14 @@ function critere_MESSAGES_rv_en_cours_dist($idb, &$boucles, $crit) {
 
 function organiseur_icone_message($type, $taille = 24) {
 	$icone = array('pb' => 'pensebete', 'affich' => 'annonce');
-	$icone = isset($icone[$type]) ? $icone[$type] : 'message';
+	$icone = $icone[$type] ?? 'message';
 
 	return "$icone-$taille.png";
 }
 
 function organiseur_texte_modifier_message($type) {
 	$texte = array('pb' => 'organiseur:icone_modifier_pensebete', 'affich' => 'organiseur:icone_modifier_annonce');
-	$texte = isset($texte[$type]) ? $texte[$type] : 'organiseur:icone_modifier_message';
+	$texte = $texte[$type] ?? 'organiseur:icone_modifier_message';
 
 	return _T($texte);
 }
@@ -181,7 +181,7 @@ function organiseur_texte_nouveau_message($type) {
 		'pb' => 'organiseur:icone_ecrire_nouveau_pensebete',
 		'affich' => 'organiseur:icone_ecrire_nouvelle_annonce'
 	);
-	$texte = isset($texte[$type]) ? $texte[$type] : 'organiseur:icone_ecrire_nouveau_message';
+	$texte = $texte[$type] ?? 'organiseur:icone_ecrire_nouveau_message';
 
 	return _T($texte);
 }
