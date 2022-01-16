@@ -52,7 +52,7 @@ function critere_MESSAGES_destinataire_dist($idb, &$boucles, $crit) {
 	$not = $crit->not;
 
 	if ($crit->cond) {
-		$where = array("'?'", "strlen($_auteur)", $where, "'1=1'");
+		$where = array("'?'", "strlen((string) $_auteur)", $where, "'1=1'");
 	}
 
 	if ($not) {
