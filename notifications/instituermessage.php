@@ -23,7 +23,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @param int $id_message
  * @param array $options
  */
-function notifications_instituermessage_dist($quoi, $id_message, $options = array()) {
+function notifications_instituermessage_dist($quoi, $id_message, $options = []) {
 
 	// ne devrait jamais se produire
 	if ($options['statut'] == $options['statut_ancien']) {
@@ -37,16 +37,16 @@ function notifications_instituermessage_dist($quoi, $id_message, $options = arra
 		$vue = "notifications/message_{$type}_publie";
 		if (trouver_fond($vue)) {
 			$envoyer_mail = charger_fonction('envoyer_mail', 'inc'); // pour nettoyer_titre_email
-			$texte = recuperer_fond($vue, array('id_message' => $id_message));
+			$texte = recuperer_fond($vue, ['id_message' => $id_message]);
 
 			// recuperer tous les emails des auteurs qui ont recu le message dans leur boite
 			// si c'est une annonce generale, on envoie a tout le monde
 			include_spip('inc/messages');
-			$where = array(
+			$where = [
 				"email!=''",
 				"statut!='5poubelle'",
 				sql_in('statut', messagerie_statuts_destinataires_possibles())
-			);
+			];
 			// pour une annonce : tous ceux qui recoivent des messages
 			if ($type !== 'affich') {
 				$ids = sql_allfetsel('id_auteur', 'spip_auteurs_liens', "objet='message' AND id_objet=" . intval($id_message));

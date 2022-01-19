@@ -29,7 +29,7 @@ function action_effacer_messagerecu_dist($id_auteur = null, $id_message = null) 
 
 
 	include_spip('inc/autoriser');
-	if (autoriser('effacer', 'messagerecu', $id_message, null, array('id_auteur' => $id_auteur))) {
+	if (autoriser('effacer', 'messagerecu', $id_message, null, ['id_auteur' => $id_auteur])) {
 		include_spip('inc/messages');
 		messagerie_effacer_message_recu($id_auteur, $id_message);
 	}

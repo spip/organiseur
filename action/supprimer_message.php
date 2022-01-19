@@ -29,6 +29,6 @@ function action_supprimer_message_dist($id_message = null) {
 	include_spip('inc/autoriser');
 	if (autoriser('supprimer', 'message', $id_message)) {
 		include_spip('action/editer_objet');
-		objet_modifier('message', $id_message, array('statut' => 'poub'));
+		objet_modifier('message', $id_message, ['statut' => 'poub']);
 	}
 }

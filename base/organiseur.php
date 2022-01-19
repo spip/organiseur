@@ -25,7 +25,7 @@ function organiseur_declarer_tables_objets_sql($tables) {
 
 	$tables['spip_auteurs']['field']['messagerie'] = 'VARCHAR(3)';
 
-	$tables['spip_messages'] = array(
+	$tables['spip_messages'] = [
 		'page' => false,
 		'texte_modifier' => 'icone_modifier_message',
 		'texte_creer' => 'icone_ecrire_nouveau_message',
@@ -36,10 +36,10 @@ function organiseur_declarer_tables_objets_sql($tables) {
 		'info_nb_objets' => 'info_nb_messages',
 
 		'principale' => 'oui',
-		'champs_editables' => array(
+		'champs_editables' => [
 			'titre', 'texte', 'type', 'date_heure', 'date_fin', 'rv', 'id_auteur', 'destinataires'
-		),
-		'field' => array(
+		],
+		'field' => [
 			'id_message' => 'bigint(21) NOT NULL',
 			'titre' => "text DEFAULT '' NOT NULL",
 			'texte' => "longtext DEFAULT '' NOT NULL",
@@ -54,27 +54,27 @@ function organiseur_declarer_tables_objets_sql($tables) {
 			'id_auteur' => 'bigint(21) DEFAULT 0 NOT NULL',
 			'destinataires' => "text DEFAULT '' NOT NULL",
 			'maj' => 'TIMESTAMP'
-		),
-		'key' => array(
+		],
+		'key' => [
 			'PRIMARY KEY' => 'id_message',
 			'KEY id_auteur' => 'id_auteur'
-		),
+		],
 		'titre' => "titre, '' AS lang",
 		'date' => 'date_heure',
-		'statut' => array(
-			array(
+		'statut' => [
+			[
 				'champ' => 'statut',
 				'publie' => 'publie',
 				'previsu' => '!',
-				'exception' => array('statut', 'tout')
-			),
-		),
-		'rechercher_champs' => array(
+				'exception' => ['statut', 'tout']
+			],
+		],
+		'rechercher_champs' => [
 			'titre' => 8,
 			'texte' => 1
-		),
+		],
 
-	);
+	];
 
 	return $tables;
 }

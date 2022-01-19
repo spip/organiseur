@@ -44,7 +44,7 @@ function formulaires_editer_message_charger_dist(
 
 	if (!intval($id_message)) {
 		$valeurs['type'] = $type;
-		$valeurs['destinataires'] = ($destinataires ? explode(',', $destinataires) : array());
+		$valeurs['destinataires'] = ($destinataires ? explode(',', $destinataires) : []);
 		$valeurs['titre'] = $titre;
 		$valeurs['texte'] = $texte;
 		$t = time();
@@ -70,7 +70,7 @@ function formulaires_editer_message_charger_dist(
 		date('d/m/Y H:i', strtotime($valeurs['date_fin']))
 	);
 
-	if (in_array($valeurs['type'], array('pb', 'affich'))) {
+	if (in_array($valeurs['type'], ['pb', 'affich'])) {
 		$valeurs['_destiner'] = '';
 	} else {
 		$valeurs['_destiner'] = ' ';
@@ -90,14 +90,15 @@ function formulaires_editer_message_verifier_dist(
 	$texte = ''
 ) {
 
-	$oblis = array('titre');
+	$oblis = ['titre'];
 	if (!_request('draft')) {
 		$oblis[] = 'texte';
 	}
 	if (intval($id_message) and $t = sql_getfetsel('type', 'spip_messages', 'id_message=' . intval($id_message))) {
 		$type = $t;
 	}
-	if (!in_array($type, array('pb', 'affich'))
+	if (
+		!in_array($type, ['pb', 'affich'])
 		// pas de destinataire obligatoire pour un brouillon
 		and !_request('draft')
 	) {
@@ -117,8 +118,9 @@ function formulaires_editer_message_verifier_dist(
 		and isset($oblis['destinataires'])
 		and $e = messagerie_verifier_destinataires(
 			_request('destinataires'),
-			array('accepter_email' => ($accepter_email == 'oui'))
-		)) {
+			['accepter_email' => ($accepter_email == 'oui')]
+		)
+	) {
 		$erreurs['destinataires'] = implode(', ', $e);
 	}
 
@@ -157,7 +159,7 @@ function formulaires_editer_message_traiter_dist(
 	// formater les destinataires
 	$d = _request('destinataires');
 	if (!$d) {
-		$d = array();
+		$d = [];
 	}
 	include_spip('inc/messages');
 	$d = messagerie_nettoyer_destinataires($d);
@@ -176,7 +178,7 @@ function formulaires_editer_message_traiter_dist(
 
 	if (_request('rv') == 'oui') {
 		include_spip('inc/date_gestion');
-		$erreurs = array();
+		$erreurs = [];
 		$date_debut = verifier_corriger_date_saisie('debut', true, $erreurs);
 		$date_fin = verifier_corriger_date_saisie('fin', true, $erreurs);
 		set_request('date_heure', date('Y-m-d H:i:s', $date_debut));
@@ -191,15 +193,18 @@ function formulaires_editer_message_traiter_dist(
 	// et notification
 	$res = formulaires_editer_objet_traiter('message', $id_message, 0, 0, $retour, '');
 
-	if ($id_message = $res['id_message']
+	if (
+		$id_message = $res['id_message']
 		and !_request('draft')
 	) {
 		include_spip('action/editer_objet');
-		objet_modifier('message', $id_message, array('statut' => 'publie', 'date_heure' => _request('date_heure')));
+		objet_modifier('message', $id_message, ['statut' => 'publie', 'date_heure' => _request('date_heure')]);
 		// apres en message envoyes, retourner sur la boite d'envoi plutot que sur le message
-		if (isset($res['redirect'])
+		if (
+			isset($res['redirect'])
 			and $type !== 'affich'
-			and ($res['redirect'] == generer_url_ecrire('message', 'id_message=' . $id_message))) {
+			and ($res['redirect'] == generer_url_ecrire('message', 'id_message=' . $id_message))
+		) {
 			$res['redirect'] = generer_url_ecrire('messages', 'quoi=envoi');
 		}
 	}

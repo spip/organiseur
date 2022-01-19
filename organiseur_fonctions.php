@@ -17,46 +17,46 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 function critere_MESSAGES_destinataire_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
-	$_auteur = calculer_liste($crit->param[0], array(), $boucles, $boucle->id_parent);
+	$_auteur = calculer_liste($crit->param[0], [], $boucles, $boucle->id_parent);
 
-	$boucle->join['auteurs_liens'] = array(
+	$boucle->join['auteurs_liens'] = [
 		"'" . $boucle->id_table . "'",
 		"'id_objet'",
 		"'" . $boucle->primary . "'",
 		"'auteurs_liens.objet=\'message\' AND auteurs_liens.id_auteur='.intval($_auteur)"
-	);
+	];
 	$boucle->from['auteurs_liens'] = 'spip_auteurs_liens';
 	$boucle->from_type['auteurs_liens'] = 'LEFT';
 	$where =
-		array(
+		[
 			"'OR'",
-			array(
+			[
 				"'AND'",
-				array("'!='", "'" . $boucle->id_table . ".id_auteur'", "intval($_auteur)"),
-				array(
+				["'!='", "'" . $boucle->id_table . ".id_auteur'", "intval($_auteur)"],
+				[
 					"'AND'",
-					array("'='", "'auteurs_liens.id_auteur'", "intval($_auteur)"),
-					array("'!='", "'auteurs_liens.vu'", "'\'poub\''"),
-				),
-			),
-			array(
+					["'='", "'auteurs_liens.id_auteur'", "intval($_auteur)"],
+					["'!='", "'auteurs_liens.vu'", "'\'poub\''"],
+				],
+			],
+			[
 				"'OR'",
-				array("'='", "'" . $boucle->id_table . ".type'", "sql_quote('affich')"),
-				array(
+				["'='", "'" . $boucle->id_table . ".type'", "sql_quote('affich')"],
+				[
 					"'AND'",
-					array("'='", "'" . $boucle->id_table . ".type'", "sql_quote('pb')"),
-					array("'='", "'" . $boucle->id_table . ".id_auteur'", "intval($_auteur)"),
-				)
-			)
-		);
+					["'='", "'" . $boucle->id_table . ".type'", "sql_quote('pb')"],
+					["'='", "'" . $boucle->id_table . ".id_auteur'", "intval($_auteur)"],
+				]
+			]
+		];
 	$not = $crit->not;
 
 	if ($crit->cond) {
-		$where = array("'?'", "strlen((string) $_auteur)", $where, "'1=1'");
+		$where = ["'?'", "strlen((string) $_auteur)", $where, "'1=1'"];
 	}
 
 	if ($not) {
-		$where = array("'NOT'", $where);
+		$where = ["'NOT'", $where];
 	}
 
 	$boucle->where[] = $where;
@@ -65,11 +65,11 @@ function critere_MESSAGES_destinataire_dist($idb, &$boucles, $crit) {
 function critere_MESSAGES_non_lu_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];
 	$boucle->where[] =
-		array(
+		[
 			"'OR'",
 			"'auteurs_liens.vu IS NULL'",
 			"sql_in('auteurs_liens.vu',array('poub','oui'),'NOT',\$connect)"
-		);
+		];
 }
 
 /**
@@ -85,7 +85,7 @@ function critere_MESSAGES_non_lu_dist($idb, &$boucles, $crit) {
  **/
 function organiseur_calculer_date_reference($idb, &$boucles, $crit) {
 	if (isset($crit->param[0])) {
-		return calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
+		return calculer_liste($crit->param[0], [], $boucles, $boucles[$idb]->id_parent);
 	} else {
 		return "date('Y-m-d H:i:00')";
 	}
@@ -107,7 +107,7 @@ function critere_MESSAGES_rv_a_venir_dist($idb, &$boucles, $crit) {
 	$_dateref = organiseur_calculer_date_reference($idb, $boucles, $crit);
 	$_date = "$id_table." . ($boucle->show['date'] ?? 'date_debut');
 	$op = $crit->not ? '<=' : '>';
-	$where = array("'$op'", "'$_date'", "sql_quote($_dateref)");
+	$where = ["'$op'", "'$_date'", "sql_quote($_dateref)"];
 
 	$boucle->where[] = $where;
 }
@@ -128,7 +128,7 @@ function critere_MESSAGES_rv_passe_dist($idb, &$boucles, $crit) {
 	$_date = "$id_table.date_fin";
 	$op = $crit->not ? '>=' : '<';
 
-	$where = array("'$op'", "'$_date'", "sql_quote($_dateref)");
+	$where = ["'$op'", "'$_date'", "sql_quote($_dateref)"];
 	$boucle->where[] = $where;
 }
 
@@ -149,38 +149,38 @@ function critere_MESSAGES_rv_en_cours_dist($idb, &$boucles, $crit) {
 	$_date_fin = "$id_table.date_fin";
 
 	$where =
-		array(
+		[
 			"'AND'",
-			array("'<='", "'$_date_debut'", "sql_quote($_dateref)"),
-			array("'>='", "'$_date_fin'", "sql_quote($_dateref)")
-		);
+			["'<='", "'$_date_debut'", "sql_quote($_dateref)"],
+			["'>='", "'$_date_fin'", "sql_quote($_dateref)"]
+		];
 
 	if ($crit->not) {
-		$where = array("'NOT'", $where);
+		$where = ["'NOT'", $where];
 	}
 	$boucle->where[] = $where;
 }
 
 
 function organiseur_icone_message($type, $taille = 24) {
-	$icone = array('pb' => 'pensebete', 'affich' => 'annonce');
+	$icone = ['pb' => 'pensebete', 'affich' => 'annonce'];
 	$icone = $icone[$type] ?? 'message';
 
 	return "$icone-$taille.png";
 }
 
 function organiseur_texte_modifier_message($type) {
-	$texte = array('pb' => 'organiseur:icone_modifier_pensebete', 'affich' => 'organiseur:icone_modifier_annonce');
+	$texte = ['pb' => 'organiseur:icone_modifier_pensebete', 'affich' => 'organiseur:icone_modifier_annonce'];
 	$texte = $texte[$type] ?? 'organiseur:icone_modifier_message';
 
 	return _T($texte);
 }
 
 function organiseur_texte_nouveau_message($type) {
-	$texte = array(
+	$texte = [
 		'pb' => 'organiseur:icone_ecrire_nouveau_pensebete',
 		'affich' => 'organiseur:icone_ecrire_nouvelle_annonce'
-	);
+	];
 	$texte = $texte[$type] ?? 'organiseur:icone_ecrire_nouveau_message';
 
 	return _T($texte);

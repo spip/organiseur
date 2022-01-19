@@ -27,11 +27,12 @@ function action_envoyer_message_dist($id_message = null) {
 	}
 
 	include_spip('inc/autoriser');
-	if (intval($id_message)
+	if (
+		intval($id_message)
 		and $type = sql_getfetsel('type', 'spip_messages', 'id_message=' . intval($id_message))
 		and autoriser('envoyermessage', $type, $id_message)
 	) {
 		include_spip('action/editer_objet');
-		objet_modifier('message', $id_message, array('statut' => 'publie'));
+		objet_modifier('message', $id_message, ['statut' => 'publie']);
 	}
 }

@@ -27,7 +27,8 @@ function organiseur_upgrade($nom_meta_base_version, $version_cible) {
 	// pour gerer l'historique des installations SPIP <=2.1
 	if (!isset($GLOBALS['meta'][$nom_meta_base_version])) {
 		$trouver_table = charger_fonction('trouver_table', 'base');
-		if ($desc = $trouver_table('spip_messages')
+		if (
+			$desc = $trouver_table('spip_messages')
 			and isset($desc['exist']) and $desc['exist']
 		) {
 			ecrire_meta($nom_meta_base_version, '1.0.0');
@@ -35,23 +36,23 @@ function organiseur_upgrade($nom_meta_base_version, $version_cible) {
 		// si pas de table en base, on fera une simple creation de base
 	}
 
-	$maj = array();
-	$maj['create'] = array(
-		array('maj_tables', array('spip_messages', 'spip_auteurs')),
-	);
+	$maj = [];
+	$maj['create'] = [
+		['maj_tables', ['spip_messages', 'spip_auteurs']],
+	];
 
-	$maj['1.1.0'] = array(
-		array('sql_updateq', 'spip_messages', array('statut' => 'prepa'), "statut='redac'"),
-		array('maj_tables', array('spip_messages')), // champ destinataires
-	);
+	$maj['1.1.0'] = [
+		['sql_updateq', 'spip_messages', ['statut' => 'prepa'], "statut='redac'"],
+		['maj_tables', ['spip_messages']], // champ destinataires
+	];
 
-	$maj['1.1.1'] = array(
-		array('sql_alter', 'TABLE spip_messages CHANGE id_auteur id_auteur bigint(21) DEFAULT 0 NOT NULL'),
-	);
+	$maj['1.1.1'] = [
+		['sql_alter', 'TABLE spip_messages CHANGE id_auteur id_auteur bigint(21) DEFAULT 0 NOT NULL'],
+	];
 
-	$maj['1.1.2'] = array(
-		array('maj_tables', array('spip_auteurs')) // champs messagerie & imessage (parfois absents)
-	);
+	$maj['1.1.2'] = [
+		['maj_tables', ['spip_auteurs']] // champs messagerie & imessage (parfois absents)
+	];
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);

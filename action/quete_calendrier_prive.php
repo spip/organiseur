@@ -44,15 +44,15 @@ function action_quete_calendrier_prive_dist() {
 
 	include_spip('inc/quete_calendrier');
 
-	$evt = array();
+	$evt = [];
 
 	// recuperer la liste des evenements au format ics
 	$start = date('Y-m-d H:i:s', $start);
 	$end = date('Y-m-d H:i:s', $end);
-	$limites = array(sql_quote($start), sql_quote($end));
+	$limites = [sql_quote($start), sql_quote($end)];
 
 	// on fonction de quoi on récupère : tout (rv + publication) ou l'un ou l'autre.
-	$entier = $duree = array();
+	$entier = $duree = [];
 
 	if (!$quoi or $quoi == 'rv') {
 		$duree = quete_calendrier_interval_rv(reset($limites), end($limites));
@@ -68,10 +68,10 @@ function action_quete_calendrier_prive_dist() {
 	// permettre aux plugins d'afficher leurs evenements dans ce calendrier
 	$evt = pipeline(
 		'quete_calendrier_prive',
-		array(
-			'args' => array('start' => $start, 'end' => $end, 'quoi' => $quoi),
+		[
+			'args' => ['start' => $start, 'end' => $end, 'quoi' => $quoi],
 			'data' => $evt,
-		)
+		]
 	);
 
 	// format json
@@ -109,7 +109,7 @@ function convert_dateical($dateical) {
  * @return array
  *     Les événements au format fullcalendar
  **/
-function convert_fullcalendar_quete_calendrier_interval($messages, $evt = array()) {
+function convert_fullcalendar_quete_calendrier_interval($messages, $evt = []) {
 	if (!$messages) {
 		return $evt;
 	}
@@ -119,7 +119,7 @@ function convert_fullcalendar_quete_calendrier_interval($messages, $evt = array(
 	foreach ($messages as $amj => $l) {
 		$date = substr($amj, 0, 4) . '-' . substr($amj, 4, 2) . '-' . substr($amj, 6, 2);
 		foreach ($l as $e) {
-			$evt[] = array(
+			$evt[] = [
 				'id' => 0,
 				'title' => $e['SUMMARY'],
 				'allDay' => true,
@@ -128,7 +128,7 @@ function convert_fullcalendar_quete_calendrier_interval($messages, $evt = array(
 				'url' => str_replace('&amp;', '&', $e['URL']),
 				'className' => 'calendrier-event ' . $e['CATEGORIES'],
 				'description' => $e['DESCRIPTION'],
-			);
+			];
 		}
 	}
 
@@ -148,14 +148,14 @@ function convert_fullcalendar_quete_calendrier_interval($messages, $evt = array(
  * @return array
  *     Les événements au format fullcalendar
  **/
-function convert_fullcalendar_quete_calendrier_interval_rv($messages, $evt = array()) {
+function convert_fullcalendar_quete_calendrier_interval_rv($messages, $evt = []) {
 	if (!$messages) {
 		return $evt;
 	}
 
 	// ici il faut faire attention : un evt apparait N fois
 	// mais on a son id
-	$seen = array();
+	$seen = [];
 
 	// toutes les messages déjà inscrits qu'on ne remet pas
 	foreach ($evt as $e) {
@@ -166,7 +166,7 @@ function convert_fullcalendar_quete_calendrier_interval_rv($messages, $evt = arr
 		foreach ($l as $id => $e) {
 			$url = str_replace('&amp;', '&', $e['URL']);
 			if (!isset($seen[$url])) {
-				$evt[] = array(
+				$evt[] = [
 					'id' => $id,
 					'title' => $e['SUMMARY'],
 					'allDay' => false,
@@ -175,7 +175,7 @@ function convert_fullcalendar_quete_calendrier_interval_rv($messages, $evt = arr
 					'url' => $url,
 					'className' => 'calendrier-event ' . $e['CATEGORIES'],
 					'description' => $e['DESCRIPTION'],
-				);
+				];
 				$seen[$url] = true;
 			}
 		}

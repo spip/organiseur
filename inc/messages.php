@@ -60,20 +60,21 @@ function messagerie_nettoyer_destinataires($destinataires) {
  * @param array $options
  * @return array
  */
-function messagerie_verifier_destinataires($destinataires, $options = array('accepter_email' => true)) {
-	$erreurs = array();
+function messagerie_verifier_destinataires($destinataires, $options = ['accepter_email' => true]) {
+	$erreurs = [];
 
 	$destinataires = messagerie_nettoyer_destinataires($destinataires);
 	foreach ($destinataires as $id) {
 		if (is_numeric($id)) {
 			if (!$id) {
-				$erreurs[] = _T('organiseur:erreur_destinataire_invalide', array('dest' => entites_html($id)));
+				$erreurs[] = _T('organiseur:erreur_destinataire_invalide', ['dest' => entites_html($id)]);
 			}
 		} else {
-			if (!$options['accepter_email']
+			if (
+				!$options['accepter_email']
 				or !email_valide($id)
 			) {
-				$erreurs[] = _T('organiseur:erreur_destinataire_invalide', array('dest' => entites_html($id)));
+				$erreurs[] = _T('organiseur:erreur_destinataire_invalide', ['dest' => entites_html($id)]);
 			}
 		}
 	}
@@ -89,8 +90,8 @@ function messagerie_verifier_destinataires($destinataires, $options = array('acc
  */
 function messagerie_destiner($dests) {
 	// separer les destinataires auteur des destinataires email
-	$auteurs_dest = array();
-	$email_dests = array();
+	$auteurs_dest = [];
+	$email_dests = [];
 
 	$dests = messagerie_nettoyer_destinataires($dests);
 	foreach ($dests as $id) {
@@ -103,14 +104,14 @@ function messagerie_destiner($dests) {
 	if (count($email_dests)) {
 		// retrouver les id des emails pour ceux qui sont en base
 		$res = sql_select('id_auteur,email', 'spip_auteurs', sql_in('email', $email_dests));
-		$auteurs_dest_found = array();
+		$auteurs_dest_found = [];
 		while ($row = sql_fetch($res)) {
 			$auteurs_dest_found[] = $row['id_auteur'];
 		}
 		$auteurs_dest = [...$auteurs_dest, ...$auteurs_dest_found];
 	}
 
-	return array($auteurs_dest, $email_dests);
+	return [$auteurs_dest, $email_dests];
 }
 
 /**
@@ -120,13 +121,14 @@ function messagerie_destiner($dests) {
  * @param array $auteurs_dest
  * @return bool|int
  */
-function messagerie_diffuser_message($id_message, $auteurs_dest = array()) {
+function messagerie_diffuser_message($id_message, $auteurs_dest = []) {
 	$out = false;
-	if ($id_message = intval($id_message)
+	if (
+		$id_message = intval($id_message)
 		and count($auteurs_dest)
 	) {
 		include_spip('action/editer_liens');
-		$out = objet_associer(array('auteur' => $auteurs_dest), array('message' => $id_message), array('vu' => 'non'));
+		$out = objet_associer(['auteur' => $auteurs_dest], ['message' => $id_message], ['vu' => 'non']);
 	}
 
 	return $out;
@@ -139,8 +141,9 @@ function messagerie_diffuser_message($id_message, $auteurs_dest = array()) {
  * @param array $emails_dest
  * @return bool
  */
-function messagerie_mailer_message($id_message, $emails_dest = array()) {
-	if ($id_message = intval($id_message)
+function messagerie_mailer_message($id_message, $emails_dest = []) {
+	if (
+		$id_message = intval($id_message)
 		and count($emails_dest)
 	) {
 		if ($row = sql_fetsel('titre,texte,id_auteur', 'spip_messages', 'id_message=' . intval($id_message))) {
@@ -149,7 +152,7 @@ function messagerie_mailer_message($id_message, $emails_dest = array()) {
 				job_queue_add(
 					'envoyer_mail',
 					'messagerie mail',
-					array($email, $row['titre'], array('texte' => $row['texte'], 'from' => $from)),
+					[$email, $row['titre'], ['texte' => $row['texte'], 'from' => $from]],
 					'inc/'
 				);
 			}
@@ -172,19 +175,19 @@ function messagerie_mailer_message($id_message, $emails_dest = array()) {
 function messagerie_marquer_message($id_auteur, $liste, $vu) {
 	include_spip('action/editer_liens');
 	if (!is_array($liste)) {
-		$liste = array($liste);
+		$liste = [$liste];
 	}
 	// completer les liens qui n'existent pas encore
 	// ex : pour marquer lue une annonce, on ajoute le lien d'abord (n'existe pas)
 	// puis on le marque 'oui'
-	$liens = objet_trouver_liens(array('auteur' => $id_auteur), array('message' => $liste));
-	$l = array();
+	$liens = objet_trouver_liens(['auteur' => $id_auteur], ['message' => $liste]);
+	$l = [];
 	foreach ($liens as $lien) {
 		$l[] = $lien['message'];
 	}
-	objet_associer(array('auteur' => $id_auteur), array('message' => array_diff($liste, $l)), array('vu' => $vu));
+	objet_associer(['auteur' => $id_auteur], ['message' => array_diff($liste, $l)], ['vu' => $vu]);
 	// puis les marquer tous lus
-	objet_qualifier_liens(array('auteur' => $id_auteur), array('message' => $liste), array('vu' => $vu));
+	objet_qualifier_liens(['auteur' => $id_auteur], ['message' => $liste], ['vu' => $vu]);
 	include_spip('inc/invalideur');
 	suivre_invalideur('message/' . implode(',', $liste));
 }

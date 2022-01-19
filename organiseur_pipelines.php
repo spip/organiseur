@@ -100,7 +100,7 @@ function organiseur_alertes_auteur($flux) {
 	} elseif ($total_messages > 1) {
 		$flux['data'][] = "<a href='" . generer_url_ecrire('messages') . "'>" . _T(
 			'organiseur:info_nb_messages_nonlus',
-			array('nb' => $total_messages)
+			['nb' => $total_messages]
 		) . '</a>';
 	}
 
@@ -121,13 +121,14 @@ function organiseur_affiche_auteurs_interventions($flux) {
 	if ($id_auteur = intval($flux['args']['id_auteur'])) {
 		include_spip('inc/message_select');
 		// Messages de l'auteur et discussions en cours
-		if ($GLOBALS['meta']['messagerie_agenda'] != 'non'
+		if (
+			$GLOBALS['meta']['messagerie_agenda'] != 'non'
 			and $id_auteur != $GLOBALS['visiteur_session']['id_auteur']
 			and autoriser('repondre', 'message', '', $id_auteur)
 		) {
 			$flux['data'] .= recuperer_fond(
 				'prive/squelettes/inclure/organiseur-interventions',
-				array('id_auteur' => $id_auteur)
+				['id_auteur' => $id_auteur]
 			);
 		}
 	}
@@ -178,10 +179,10 @@ function organiseur_affiche_droite($flux) {
 	if ($flux['args']['exec'] == 'accueil') {
 		$flux['data'] .= recuperer_fond(
 			'prive/squelettes/inclure/organiseur-rappels',
-			array(
+			[
 				'id_auteur' => $GLOBALS['visiteur_session']['id_auteur'],
 				'last' => $GLOBALS['visiteur_session']['quand'],
-			)
+			]
 		);
 	}
 
@@ -197,7 +198,7 @@ function organiseur_affiche_droite($flux) {
  */
 function organiseur_affiche_milieu($flux) {
 	if ($flux['args']['exec'] == 'configurer_interactions') {
-		$c = recuperer_fond('prive/squelettes/inclure/configurer_messagerie', array());
+		$c = recuperer_fond('prive/squelettes/inclure/configurer_messagerie', []);
 		if ($p = strpos($flux['data'], '<!--contenu_prive-->')) {
 			$flux['data'] = substr_replace($flux['data'], $c, $p, 0);
 		} else {
@@ -217,7 +218,8 @@ function organiseur_affiche_milieu($flux) {
  */
 function organiseur_post_edition($flux) {
 
-	if (isset($flux['args']['table'])
+	if (
+		isset($flux['args']['table'])
 		and $flux['args']['table'] == 'spip_messages'
 		and $flux['args']['action'] == 'instituer'
 		and $flux['data']['statut'] == 'publie'
