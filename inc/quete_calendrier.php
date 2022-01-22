@@ -130,7 +130,7 @@ function quete_calendrier_interval_forums($limites, &$evenements) {
 		if (autoriser('voir', 'forum', $id)) {
 			$evenements[$amj][] =
 				array(
-					'URL' => generer_url_entite($id, 'forum'),
+					'URL' => generer_objet_url($id, 'forum'),
 					'CATEGORIES' => 'calendrier-couleur7',
 					'SUMMARY' => $row['titre'],
 					'DTSTART' => date_ical($row['date_heure'])
@@ -180,7 +180,7 @@ function quete_calendrier_interval_articles($avant, $apres, &$evenements) {
 					'CATEGORIES' => calendrier_categories('spip_articles', $id, 'id_article'),
 					'DESCRIPTION' => $row['descriptif'] ?: $langue,
 					'SUMMARY' => $row['titre'],
-					'URL' => generer_url_ecrire_objet('article', $id, '', '', 'prop')
+					'URL' => generer_objet_url_ecrire('article', $id, '', '', 'prop')
 				);
 		}
 	}
@@ -216,7 +216,7 @@ function quete_calendrier_interval_rubriques($avant, $apres, &$evenements) {
 					'CATEGORIES' => calendrier_categories('spip_rubriques', $id, 'id_rubrique'),
 					'DESCRIPTION' => $row['descriptif'],
 					'SUMMARY' => $row['titre'],
-					'URL' => generer_url_ecrire_objet('rubrique', $id, '', '', 'prop')
+					'URL' => generer_objet_url_ecrire('rubrique', $id, '', '', 'prop')
 				);
 		}
 	}
@@ -248,7 +248,7 @@ function quete_calendrier_interval_breves($avant, $apres, &$evenements) {
 		if (autoriser('voir', 'breve', $id)) {
 			$evenements[$amj][] =
 				array(
-					'URL' => generer_url_ecrire_objet('breve', $id, '', '', 'prop'),
+					'URL' => generer_objet_url_ecrire('breve', $id, '', '', 'prop'),
 					'CATEGORIES' => calendrier_categories('spip_breves', $ir, 'id_breve'),
 					'SUMMARY' => $row['titre']
 				);

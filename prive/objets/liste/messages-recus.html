@@ -33,8 +33,8 @@
 			<td class="new">[(#GET{vu}|non)<i class="picto-message-new" title="<:organiseur:info_message_non_lu|attribut_html:>"></i>]</td>
 			<td class="type">[(#CHEMIN_IMAGE{#TYPE|organiseur_icone_message{16}}|balise_img{#VAL{organiseur:info_type_message_}|concat{#TYPE}|_T})]</td>
 			<td class="isrv">[(#RV|=={oui}|oui)[(#CHEMIN_IMAGE{heure-16.png}|balise_img{<:organiseur:info_type_message_rv:>})]]</td>
-			<td class="from"><a href="[(#ID_AUTEUR|generer_url_entite{auteur})]">#INFO_NOM{auteur,#ID_AUTEUR}</a></td>
-			<td class="titre principale"><a href="[(#ID_MESSAGE|generer_url_entite{message})]">#TITRE</a></td>
+			<td class="from"><a href="[(#ID_AUTEUR|generer_objet_url{auteur})]">#INFO_NOM{auteur,#ID_AUTEUR}</a></td>
+			<td class="titre principale"><a href="[(#ID_MESSAGE|generer_objet_url{message})]">#TITRE</a></td>
 			<td class="date secondaire">
 				[(#RV|=={oui}|?{
 					[(#DATE_HEURE|affdate_debut_fin{#DATE_FIN,oui,abbr})]

@@ -25,7 +25,7 @@
 		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
 			<td class='type'>[(#CHEMIN_IMAGE{#TYPE|organiseur_icone_message{16}}|balise_img{#VAL{organiseur:info_type_message_}|concat{#TYPE}|_T})]</td>
 			<td class='isrv'>[(#RV|=={oui}|oui)[(#CHEMIN_IMAGE{heure-16.png}|balise_img{<:organiseur:info_type_message_rv:>})]]</td>
-			<td class="to"><BOUCLE_d(DATA){source table, #DESTINATAIRES|explode{','}}{si #TYPE|=={normal}}{', '}><BOUCLE_a(AUTEURS){id_auteur=#VALEUR}{tout}><a href="[(#ID_AUTEUR|generer_url_entite{auteur})]">#NOM</a></BOUCLE_a>#VALEUR<//B_a></BOUCLE_d></td>
+			<td class="to"><BOUCLE_d(DATA){source table, #DESTINATAIRES|explode{','}}{si #TYPE|=={normal}}{', '}><BOUCLE_a(AUTEURS){id_auteur=#VALEUR}{tout}><a href="[(#ID_AUTEUR|generer_objet_url{auteur})]">#NOM</a></BOUCLE_a>#VALEUR<//B_a></BOUCLE_d></td>
 			<td class='date secondaire'>
 				[(#RV|=={oui}|?{
 					[(#DATE_HEURE|affdate_debut_fin{#DATE_FIN,oui,abbr})]
@@ -35,7 +35,7 @@
 			</td>
 			<td class='titre principale'>
 				<a
-					href="[(#ID_MESSAGE|generer_url_entite{message})]">#TITRE</a>
+					href="[(#ID_MESSAGE|generer_objet_url{message})]">#TITRE</a>
 			</td>
 			<td class=''></td>
 		</tr>

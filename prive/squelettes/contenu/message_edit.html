@@ -3,7 +3,7 @@
 ][(#ENV{id_message}|intval|non)
 	[(#AUTORISER{envoyermessage,#ENV{typemes,normal}}|sinon_interdire_acces)]
 ]
-#SET{redirect,#ENV{redirect}|sinon{#ENV{id_message}|intval|?{#ENV{id_message}|intval|generer_url_entite{message},#URL_ECRIRE{messages}}}}
+#SET{redirect,#ENV{redirect}|sinon{#ENV{id_message}|intval|?{#ENV{id_message}|intval|generer_objet_url{message},#URL_ECRIRE{messages}}}}
 
 <div class='cadre-formulaire-editer'>
 <div class="entete-formulaire">
@@ -11,7 +11,7 @@
 	[(#ENV{typemes,normal}|organiseur_texte_nouveau_message)]
 </div>
 
-#SET{redirect,#ENV{id_message}|generer_url_entite{message}}
+#SET{redirect,#ENV{id_message}|generer_objet_url{message}}
 [(#ENV{retourajax,''}|oui)
 	#SET{redirect,'javascript:if (window.jQuery) jQuery(".entete-formulaire .retour a").followLink();'}
 	<div class="ajax">
